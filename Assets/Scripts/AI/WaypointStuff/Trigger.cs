@@ -8,7 +8,8 @@ public class Trigger : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Enemy"))
         {
-            //create interface to say that we hit a trigger
+            HitTrigger hitTrigger = other.gameObject.GetComponent<HitTrigger>();
+            if(hitTrigger != null) hitTrigger.OnHitTrigger(this.gameObject);
         }
     }
 }

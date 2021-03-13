@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AISystem : StateMachine, HitTrigger
 {
@@ -10,6 +11,7 @@ public class AISystem : StateMachine, HitTrigger
     [HideInInspector] public bool hitTrigger = false;
     [HideInInspector] public GameObject triggerWeHit;
     [HideInInspector] public int waypointChildIterator = 0;
+    public NavMeshAgent agent;
 
     void Start()
     {
@@ -56,6 +58,7 @@ public class AISystem : StateMachine, HitTrigger
                 break;
             case states.Patrol:
                 SetState(new PatrolState(this));
+                //StartCoroutine(State.Start());
                 break;
             case states.Chase:
                 SetState(new ChaseState(this));
@@ -64,7 +67,7 @@ public class AISystem : StateMachine, HitTrigger
                 SetState(new AttackState(this));
                 break;
         }
-        StartCoroutine(State.DoAction()); //automatically starts with the State.Start() in case we want something to happen there, so have to call DoAction manually
+        StartCoroutine(State.DoAction());
     }
     
     //public because used in interface script
