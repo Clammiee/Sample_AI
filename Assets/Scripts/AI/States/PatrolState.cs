@@ -9,20 +9,17 @@ public class PatrolState : State
     {        
     }
 
-    public override IEnumerator Start()
+    public override void Start()
     {
         aI_System.hitTrigger = true; //to let us to to the first waypoint (with below method)
-        yield break;
     }
 
-    public override IEnumerator DoAction()
+    public override void DoAction()
     {   
         //animation inputs goes here
         //Animate(this.gameObject, "Condition", true);
 
         WayPointMovement();
-        
-        yield break;
     }
 
     private void WayPointMovement()
@@ -33,8 +30,9 @@ public class PatrolState : State
 
             if(aI_System.hitTrigger == true)
             {
-                Vector3 destination = aI_System.waypointParent.transform.GetChild(aI_System.waypointChildIterator).transform.position;
-                aI_System.agent.SetDestination(destination);
+                GameObject destination = aI_System.waypointParent.transform.GetChild(aI_System.waypointChildIterator).gameObject;
+                aI_System.agent.SetDestination(destination.transform.position);
+                FaceMovementDirection(destination, aI_System.gameObject, aI_System.rotationSpeed);
 
                 aI_System.waypointChildIterator++;
                 aI_System.hitTrigger = false;
@@ -42,12 +40,10 @@ public class PatrolState : State
         }
     }
 
-    public override IEnumerator End()
+    public override void End()
     {    
         //animation 
         //Animate(this.gameObject, "Condition", false);
-        
-        yield break;
     }
 
 }

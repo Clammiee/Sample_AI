@@ -12,11 +12,12 @@ public class AISystem : StateMachine, HitTrigger
     [HideInInspector] public GameObject triggerWeHit;
     [HideInInspector] public int waypointChildIterator = 0;
     public NavMeshAgent agent;
+    public float rotationSpeed = 5f;
 
     void Start()
     {
         SetState(new IdleState(this));
-        StartCoroutine(State.DoAction());
+        State.DoAction();
     }
 
 //----------- UI STUFF ------------------// 
@@ -45,7 +46,7 @@ public class AISystem : StateMachine, HitTrigger
     
     public void CommonTasks(states currentState) //want to pass this function to our UI 
     {
-        StartCoroutine(State.End()); //ends all previous tasks
+        State.End(); //ends all previous tasks
         ChangeState(currentState);
     }
 
@@ -58,7 +59,6 @@ public class AISystem : StateMachine, HitTrigger
                 break;
             case states.Patrol:
                 SetState(new PatrolState(this));
-                //StartCoroutine(State.Start());
                 break;
             case states.Chase:
                 SetState(new ChaseState(this));
@@ -67,7 +67,7 @@ public class AISystem : StateMachine, HitTrigger
                 SetState(new AttackState(this));
                 break;
         }
-        StartCoroutine(State.DoAction());
+        State.DoAction();
     }
     
     //public because used in interface script

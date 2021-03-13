@@ -11,19 +11,16 @@ public abstract class State
         aI_System = aISystem;
     }
         
-    public virtual IEnumerator Start()
+    public virtual void Start()
     {
-        yield break;
     }
 
-    public virtual IEnumerator DoAction()
+    public virtual void DoAction()
     {
-        yield break;
     }
 
-    public virtual IEnumerator End()
+    public virtual void End()
     {
-        yield break;
     }
 
 //--- COMMON FUNCTIONALITIES WITHIN THE STATES -----------------//
@@ -33,7 +30,7 @@ public abstract class State
         obj.GetComponent<Animator>().SetBool(condition, boolean);
     }
 
-    public void FaceMovementDirection(GameObject goal, GameObject AI, float rotationSpeed)
+    protected void FaceMovementDirection(GameObject goal, GameObject AI, float rotationSpeed)
     {
         if(goal != null && AI != null && rotationSpeed > 0)
         {

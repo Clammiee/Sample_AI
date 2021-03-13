@@ -8,21 +8,16 @@ public class AttackState : State
     {        
     }
 
-    public override IEnumerator DoAction()
+    public override void DoAction()
     {   
         //animation inputs goes here
         //Animate(this.gameObject, "Condition", true);
 
-        //any other method calls go here
-
-        yield break;
     }
 
-    public override IEnumerator End()
+    public override void End()
     {    
         //animation 
         //Animate(this.gameObject, "Condition", false);
-        
-        yield break;
     }
 }
