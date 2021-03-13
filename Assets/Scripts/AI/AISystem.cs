@@ -13,6 +13,8 @@ public class AISystem : StateMachine, HitTrigger
     [HideInInspector] public int waypointChildIterator = 0;
     public NavMeshAgent agent;
     public float rotationSpeed = 5f;
+    public GameObject gunTip;
+    public GameObject bulletPrefab;
 
     void Start()
     {
