@@ -14,7 +14,6 @@ public class AISystem : StateMachine, HitTrigger
     public NavMeshAgent agent;
     public float rotationSpeed = 5f;
     public GameObject gunTip;
-    public GameObject bulletPrefab;
 
     void Start()
     {

@@ -11,5 +11,4 @@ public abstract class StateMachine : MonoBehaviour
         State = state;
         State.Start();
     }
-    
 }

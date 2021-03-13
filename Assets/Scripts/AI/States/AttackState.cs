@@ -18,10 +18,7 @@ public class AttackState : State
 
     private void Shoot()
     {
-        //INSTANTIATE COMES FROM MONOBEHAVIOR
-        //Instantiate(aI_System.bulletPrefab, aI_System.gunTip.transform.position, Quaternion.identity);
-        //SO WE USE OBJECT POOLING IN THIS CASE
-        Debug.Log("shooting");
+        ObjectPooler.Instance.SpawnFromPool("Bullet", aI_System.gunTip.transform.position);
     }
 
     public override void End()
