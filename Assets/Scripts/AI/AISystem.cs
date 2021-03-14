@@ -76,6 +76,7 @@ public class AISystem : StateMachine, HitTrigger
     {
         hitTrigger = true;
         triggerWeHit = objWeHit;
+        State.DoAction();
     }
 
 }
