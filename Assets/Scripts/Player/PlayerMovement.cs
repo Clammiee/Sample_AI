@@ -11,9 +11,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     [Tooltip("Drag in the rigidbody attached to this object")]
     [SerializeField] private Rigidbody rb;
-    private Vector3 newDir;
-    private float zDirection;
-    private float xDirection;
 
     private void Awake() 
     {
@@ -29,9 +26,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Movement()
     {
-        zDirection = DirectionOutput(playerActions.Forwards, playerActions.Backwards);
-        xDirection = DirectionOutput(playerActions.Right, playerActions.Left);
-        newDir = new Vector3(xDirection, 0f, zDirection);
+        float zDirection = DirectionOutput(playerActions.Forwards, playerActions.Backwards);
+        float xDirection = DirectionOutput(playerActions.Right, playerActions.Left);
+        Vector3 newDir = new Vector3(xDirection, 0f, zDirection);
         Move(newDir.normalized);
     }
 
