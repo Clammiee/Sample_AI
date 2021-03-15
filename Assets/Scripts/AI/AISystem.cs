@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class AISystem : StateMachine, HitTrigger
 {
     //public because we call these in other scripts (mainly specific state scripts)
-    public enum states{Idle, Patrol, Chase, Attack};
+    public enum states{Idle, Patrol, Chase, Attack, Vision};
     public GameObject waypointParent;
     [HideInInspector] public bool hitTrigger = false;
     [HideInInspector] public GameObject triggerWeHit;
@@ -17,12 +17,18 @@ public class AISystem : StateMachine, HitTrigger
     [HideInInspector] public GameObject player;
     public float damagePerBullet;
     public float bulletSpeed;
+    public float visionRange;
+    public float field_Of_View_Angle;
+    [HideInInspector] public Vector3 forwardVector;
+    [HideInInspector] public Vector3 upVector;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         SetState(new IdleState(this));
         State.DoAction();
+        forwardVector = Vector3.forward;
+        upVector = Vector3.up;
     }
 
 //----------- UI STUFF ------------------// 
@@ -44,6 +50,11 @@ public class AISystem : StateMachine, HitTrigger
     public void AttackButton()
     {
         CommonTasks(states.Attack);
+    }
+
+    public void VisionButton()
+    {
+        CommonTasks(states.Vision);
     }
         
 //-----------  ------------------// 
@@ -70,6 +81,9 @@ public class AISystem : StateMachine, HitTrigger
                 break;
             case states.Attack:
                 SetState(new AttackState(this));
+                break;
+            case states.Vision:
+                SetState(new VisionState(this));
                 break;
         }
         State.DoAction();
