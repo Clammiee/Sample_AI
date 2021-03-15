@@ -14,9 +14,11 @@ public class AISystem : StateMachine, HitTrigger
     public NavMeshAgent agent;
     public float rotationSpeed = 5f;
     public GameObject gunTip;
+    [HideInInspector] public GameObject player;
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         SetState(new IdleState(this));
         State.DoAction();
     }

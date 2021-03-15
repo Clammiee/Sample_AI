@@ -5,16 +5,11 @@ using UnityEngine.AI;
 
 public class ChaseState : State
 {
-    private GameObject player;
 
     public ChaseState(AISystem aISystem) : base(aISystem)
     {        
     }
 
-    public override void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
 
     public override void DoAction()
     {   
@@ -26,10 +21,10 @@ public class ChaseState : State
 
     private void ChasePlayer()
     {
-        if(player != null)
+        if(aI_System.player != null)
         {
-            aI_System.agent.SetDestination(player.transform.position);
-            FaceMovementDirection(player, aI_System.gameObject, aI_System.rotationSpeed);
+            aI_System.agent.SetDestination(aI_System.player.transform.position);
+            FaceMovementDirection(aI_System.player, aI_System.gameObject, aI_System.rotationSpeed);
         }
     }
 
