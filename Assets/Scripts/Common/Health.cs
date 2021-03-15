@@ -26,12 +26,4 @@ public class Health : MonoBehaviour, IDamagable
         }
         healthBar.fillAmount = healthDecimal;
     }
-
-   /* private void LookAtCam()
-    {
-        Vector3 vector = cam.transform.position - damageChild.transform.position;
-        vector.x = vector.z = 0.0f;
-        damageChild.transform.LookAt(cam.transform.position - vector); 
-        damageChild.transform.Rotate(0,180,0);
-    }*/
 }
