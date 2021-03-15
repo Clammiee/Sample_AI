@@ -14,11 +14,11 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) 
     {
-        if(CheckDamagableObjectTags(other.gameObject.tag))
+        if(CheckIfInArray(other.gameObject.tag, damagableTags))
         {
             DamageGO(other.gameObject);
         }
-        else if(CheckCollidableObjectTags(other.gameObject.tag))
+        else if(CheckIfInArray(other.gameObject.tag, collidableTags))
         {
             this.gameObject.SetActive(false);
         }
@@ -26,21 +26,20 @@ public class Bullet : MonoBehaviour
 
     private void DamageGO(GameObject go)
     {
-        //IDamageable damageable = object.GetComponent<IDamageable>();
-       // if (damageable != null)
-       // {
-           // damageable.Damage(damagePerBullet);
-            //this.gameObject.SetActive(false);
-       // }
+        IDamagable damagable = go.GetComponent<IDamagable>();
+        if (damagable != null)
+        {
+            damagable.Damage(damagePerBullet);
+            this.gameObject.SetActive(false);
+        }
     }
 
-    private bool CheckDamagableObjectTags(string tag)
-    {
-        return true;
-    }
-
-    private bool CheckCollidableObjectTags(string tag)
-    {
-        return true;
+    private bool CheckIfInArray(string tag, string[] tagsArray)
+    { 
+        foreach(string tagString in tagsArray)
+        {
+            if(string.Equals(tag, tagString)) return true;
+        }
+        return false;
     }
 }
