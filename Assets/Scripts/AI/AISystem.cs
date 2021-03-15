@@ -15,6 +15,8 @@ public class AISystem : StateMachine, HitTrigger
     public float rotationSpeed = 5f;
     public GameObject gunTip;
     [HideInInspector] public GameObject player;
+    public float damagePerBullet;
+    public float bulletSpeed;
 
     void Start()
     {
