@@ -17,8 +17,7 @@ public class AttackState : State
 
     public override void DoAction()
     {   
-        //animation inputs goes here
-        //Animate(this.gameObject, "Condition", true);
+        AnimationEvents.TriggerOnPlayAnimation("Shoot", true);
 
         Shoot(CreateAndInitializeBullet());
     }
@@ -40,7 +39,6 @@ public class AttackState : State
 
     public override void End()
     {    
-        //animation 
-        //Animate(this.gameObject, "Condition", false);
+        AnimationEvents.TriggerOnPlayAnimation("Shoot", false);
     }
 }

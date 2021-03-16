@@ -10,17 +10,11 @@ public class IdleState : State
 
     public override void DoAction()
     {   
-        //animation inputs goes here
-        //Animate(this.gameObject, "Condition", true);
-
-        //any other method calls go here
-        
+        AnimationEvents.TriggerOnPlayAnimation("Idle", true);
     }
 
     public override void End()
     {    
-        //animation 
-        //Animate(this.gameObject, "Condition", false);
-
+        AnimationEvents.TriggerOnPlayAnimation("Idle", false);
     }
 }

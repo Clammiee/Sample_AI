@@ -25,11 +25,6 @@ public abstract class State
 
 //--- COMMON FUNCTIONALITIES WITHIN THE STATES -----------------//
 
-    protected void Animate(GameObject obj, string condition, bool boolean)
-    {
-        obj.GetComponent<Animator>().SetBool(condition, boolean);
-    }
-
     protected void FaceMovementDirection(GameObject goal, GameObject AI, float rotationSpeed)
     {
         if(goal != null && AI != null && rotationSpeed > 0)

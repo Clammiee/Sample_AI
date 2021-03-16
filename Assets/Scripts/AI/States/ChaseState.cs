@@ -13,8 +13,7 @@ public class ChaseState : State
 
     public override void DoAction()
     {   
-        //animation inputs goes here
-        //Animate(this.gameObject, "Condition", true);
+        AnimationEvents.TriggerOnPlayAnimation("Run", true);
 
         ChasePlayer();
     }
@@ -30,7 +29,6 @@ public class ChaseState : State
 
     public override void End()
     {    
-        //animation 
-        //Animate(this.gameObject, "Condition", false);
+        AnimationEvents.TriggerOnPlayAnimation("Run", false);
     }
 }

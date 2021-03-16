@@ -16,8 +16,7 @@ public class PatrolState : State
 
     public override void DoAction()
     {   
-        //animation inputs goes here
-        //Animate(this.gameObject, "Condition", true);
+        AnimationEvents.TriggerOnPlayAnimation("Run", true);
 
         WayPointMovement();
     }
@@ -42,8 +41,7 @@ public class PatrolState : State
 
     public override void End()
     {    
-        //animation 
-        //Animate(this.gameObject, "Condition", false);
+        AnimationEvents.TriggerOnPlayAnimation("Run", false);
     }
 
 }

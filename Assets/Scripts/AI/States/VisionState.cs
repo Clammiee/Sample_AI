@@ -11,7 +11,7 @@ public class VisionState : State
 
     public override void DoAction()
     {
-        //animations go here
+        AnimationEvents.TriggerOnPlayAnimation("Vision", true);
         
         //PUT THIS ON UI TO DEBUG OR SOMETHING------------------
         if(WithinVisionCheck() == true) Debug.Log("We SEE the player");
@@ -49,6 +49,6 @@ public class VisionState : State
 
     public override void End()
     {
-        //false animation transitions go here
+        AnimationEvents.TriggerOnPlayAnimation("Vision", false);
     }
 }
