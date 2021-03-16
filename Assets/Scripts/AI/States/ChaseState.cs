@@ -13,7 +13,7 @@ public class ChaseState : State
 
     public override void DoAction()
     {   
-        AnimationEvents.TriggerOnPlayAnimation("Run", true);
+        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Run", true);
 
         ChasePlayer();
     }
@@ -29,6 +29,11 @@ public class ChaseState : State
 
     public override void End()
     {    
-        AnimationEvents.TriggerOnPlayAnimation("Run", false);
+        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Run", false);
+    }
+
+    public override void StopAnimation()
+    {
+        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Run", false);
     }
 }

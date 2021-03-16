@@ -9,9 +9,15 @@ public class VisionState : State
 
     }
 
+    public override void Start()
+    {
+        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "TakeOut", true);
+    }
+
     public override void DoAction()
     {
-        AnimationEvents.TriggerOnPlayAnimation("Vision", true);
+
+        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Vision", true);
         
         //PUT THIS ON UI TO DEBUG OR SOMETHING------------------
         if(WithinVisionCheck() == true) Debug.Log("We SEE the player");
@@ -49,6 +55,7 @@ public class VisionState : State
 
     public override void End()
     {
-        AnimationEvents.TriggerOnPlayAnimation("Vision", false);
+        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Vision", false);
+        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "TakeOut", false);
     }
 }

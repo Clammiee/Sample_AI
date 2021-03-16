@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class State
+public abstract class State : MonoBehaviour
 {
     protected AISystem aI_System;
 
@@ -23,7 +23,12 @@ public abstract class State
     {
     }
 
-//--- COMMON FUNCTIONALITIES WITHIN THE STATES -----------------//
+    public virtual void StopAnimation()
+    {
+
+    }
+
+//------------------ Common Functions Used ---------------------//
 
     protected void FaceMovementDirection(GameObject goal, GameObject AI, float rotationSpeed)
     {

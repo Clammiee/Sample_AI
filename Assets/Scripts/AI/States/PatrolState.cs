@@ -12,12 +12,12 @@ public class PatrolState : State
     public override void Start()
     {
         aI_System.hitTrigger = true; //to let us to to the first waypoint (with below method)
+        
     }
 
     public override void DoAction()
     {   
-        AnimationEvents.TriggerOnPlayAnimation("Run", true);
-
+        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Run", true);
         WayPointMovement();
     }
 
@@ -39,9 +39,9 @@ public class PatrolState : State
         }
     }
 
-    public override void End()
-    {    
-        AnimationEvents.TriggerOnPlayAnimation("Run", false);
+    public override void StopAnimation()
+    {
+        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Run", false);
     }
 
 }

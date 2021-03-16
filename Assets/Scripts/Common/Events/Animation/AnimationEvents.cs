@@ -5,11 +5,11 @@ using System;
 
 public class AnimationEvents
 {
-    public delegate void StringEvent(string condition, bool boolean);
+    public delegate void StringEvent(GameObject obj, string condition, bool boolean);
     public static event StringEvent OnPlayAnimation;
 
-    public static void TriggerOnPlayAnimation(string condition, bool boolean)
+    public static void TriggerOnPlayAnimation(GameObject obj, string condition, bool boolean)
     {
-        OnPlayAnimation?.Invoke(condition, boolean);
+        OnPlayAnimation?.Invoke(obj, condition, boolean);
     }
 }

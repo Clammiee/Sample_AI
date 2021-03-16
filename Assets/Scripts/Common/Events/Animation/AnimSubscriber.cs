@@ -16,8 +16,8 @@ public class AnimSubscriber : MonoBehaviour
         AnimationEvents.OnPlayAnimation -= SetOnPlayAnimation;
     }
 
-    public void SetOnPlayAnimation(string condition, bool boolean)
+    public void SetOnPlayAnimation(GameObject obj, string condition, bool boolean)
     {
-        animator.SetBool(condition, boolean);
+        if(this.gameObject == obj) animator.SetBool(condition, boolean);
     }
 }

@@ -21,6 +21,7 @@ public class AISystem : StateMachine, HitTrigger
     public float field_Of_View_Angle;
     [HideInInspector] public Vector3 forwardVector;
     [HideInInspector] public Vector3 upVector;
+    [SerializeField] private float stopAnimTimer = 0.3f;
 
     void Start()
     {
@@ -87,6 +88,14 @@ public class AISystem : StateMachine, HitTrigger
                 break;
         }
         State.DoAction();
+
+        StartCoroutine(StopAnim(stopAnimTimer));
+    }
+
+    private IEnumerator StopAnim(float time)
+    {
+        yield return new WaitForSeconds(time);
+        State.StopAnimation();
     }
     
     //public because used in interface script
@@ -95,6 +104,7 @@ public class AISystem : StateMachine, HitTrigger
         hitTrigger = true;
         triggerWeHit = objWeHit;
         State.DoAction();
+        StartCoroutine(StopAnim(stopAnimTimer));
     }
 
 }

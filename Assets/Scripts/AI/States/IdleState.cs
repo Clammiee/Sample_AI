@@ -10,11 +10,11 @@ public class IdleState : State
 
     public override void DoAction()
     {   
-        AnimationEvents.TriggerOnPlayAnimation("Idle", true);
+        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Idle", true);
     }
 
     public override void End()
     {    
-        AnimationEvents.TriggerOnPlayAnimation("Idle", false);
+        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Idle", false);
     }
 }
