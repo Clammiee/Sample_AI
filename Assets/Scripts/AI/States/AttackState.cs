@@ -13,7 +13,6 @@ public class AttackState : State
     public override void Start()
     {
         objectPooler = ObjectPooler.Instance;
-        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "TakeOut", true);
     }
 
     public override void DoAction()
@@ -39,8 +38,12 @@ public class AttackState : State
     }
 
     public override void End()
-    {    
+    {
         AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Shoot", false);
-        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "TakeOut", false);
+    }
+
+    public override void StopAnimation()
+    {
+        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Shoot", false);
     }
 }

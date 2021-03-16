@@ -9,11 +9,6 @@ public class VisionState : State
 
     }
 
-    public override void Start()
-    {
-        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "TakeOut", true);
-    }
-
     public override void DoAction()
     {
 
@@ -56,6 +51,10 @@ public class VisionState : State
     public override void End()
     {
         AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Vision", false);
-        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "TakeOut", false);
+    }
+
+    public override void StopAnimation()
+    {
+        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Vision", false);
     }
 }

@@ -592,6 +592,7 @@ MonoBehaviour:
   field_Of_View_Angle: 40
   forwardVector: {x: 0, y: 0, z: 0}
   upVector: {x: 0, y: 0, z: 0}
+  stopAnimTimer: 0.3
 --- !u!54 &315852447
 Rigidbody:
   m_ObjectHideFlags: 0

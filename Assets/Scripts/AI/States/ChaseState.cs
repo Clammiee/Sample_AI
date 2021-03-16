@@ -28,7 +28,7 @@ public class ChaseState : State
     }
 
     public override void End()
-    {    
+    {
         AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Run", false);
     }
 

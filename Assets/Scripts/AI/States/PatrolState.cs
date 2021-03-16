@@ -39,6 +39,11 @@ public class PatrolState : State
         }
     }
 
+    public override void End()
+    {
+        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Run", false);
+    }
+
     public override void StopAnimation()
     {
         AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Run", false);
