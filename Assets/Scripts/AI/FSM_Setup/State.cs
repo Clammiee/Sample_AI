@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class State : MonoBehaviour
+public abstract class State
 {
     protected AISystem aI_System;
 

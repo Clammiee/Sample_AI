@@ -16,7 +16,7 @@ public class PlayerShoot : PlayerInputs
 
     void FixedUpdate()
     {
-        if(ShootInput() == true) Shoot(CreateAndInitializeBullet());
+        if(ShootInput() == true) Shoot(CreateAndInitializeBullet()); //REPLACE WITH SHOOTING ANIMATION TRIGGER
     }
 
     private bool ShootInput()

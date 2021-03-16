@@ -5,7 +5,7 @@ using UnityEngine;
 public class AnimSubscriber : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-
+    
     void Awake()
     {
         AnimationEvents.OnPlayAnimation += SetOnPlayAnimation;
@@ -19,5 +19,10 @@ public class AnimSubscriber : MonoBehaviour
     public void SetOnPlayAnimation(GameObject obj, string condition, bool boolean)
     {
         if(this.gameObject == obj) animator.SetBool(condition, boolean);
+    }
+
+    public void Shoot() //attach to shooting animation as an event
+    {
+        ActionEvents.TriggerOnShootBullet(this.gameObject);
     }
 }
