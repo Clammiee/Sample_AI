@@ -29,7 +29,11 @@ public class Health : MonoBehaviour, IDamagable
             {
                 healthDecimal = 0f;
                 AnimationEvents.TriggerOnPlayAnimation(this.gameObject, "Dead", true);
-                //Add Interface that disables all script functionalities so that the AI or player stays dead
+                
+                //So that the AI/ Player stays dead and cant function anymore
+                IDead iDead = this.GetComponent<IDead>();
+                if(iDead != null) iDead.Dead();
+
                 dieOnce++;
             }
             StartCoroutine(StopAnim(stopAnimTimer));

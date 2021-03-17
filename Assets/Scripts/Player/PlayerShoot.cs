@@ -16,24 +16,19 @@ public class PlayerShoot : PlayerInputs
 
     void FixedUpdate()
     {
-        if(ShootInput() == true) Shoot(CreateAndInitializeBullet()); //REPLACE WITH SHOOTING ANIMATION TRIGGER
+        if(ShootInput() == true) Shoot(); //REPLACE WITH SHOOTING ANIMATION TRIGGER
     }
 
     private bool ShootInput()
     {
-        if(base.InputDetection(playerActions.Attack) > 0f && base.IsInputTriggered(playerActions.Attack)) return true;
+        if(base.InputDetection(playerActions.Attack) > 0f && playerActions.Attack.triggered) return true;
         else return false;
     }
 
-    private GameObject CreateAndInitializeBullet()
+    private void Shoot()
     {
         GameObject bullet = objectPooler.SpawnFromPool("Bullet", gunTip.transform.position);
         bullet.GetComponent<Bullet>().InitializeBullet(damagePerBullet);
-        return bullet;
-    }
-
-    private void Shoot(GameObject bullet)
-    {
         Rigidbody rigidbody = bullet.GetComponent<Rigidbody>();
         rigidbody.velocity = Vector3.zero;
         rigidbody.transform.rotation = Quaternion.LookRotation(gunTip.transform.forward);

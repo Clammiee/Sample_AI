@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AISystem : StateMachine, HitTrigger
+public class AISystem : StateMachine, HitTrigger, IDead
 {
     //public because we call these in other scripts (mainly specific state scripts)
     public enum states{Idle, Patrol, Chase, Attack, Vision};
@@ -61,7 +61,7 @@ public class AISystem : StateMachine, HitTrigger
     public void CommonTasks(states currentState) //want to pass this function to our UI 
     {
         State.End(); //ends all previous tasks
-        ChangeState(currentState);
+        if(this.enabled == true) ChangeState(currentState);
     }
 
     private void ChangeState(states newState)
@@ -94,14 +94,18 @@ public class AISystem : StateMachine, HitTrigger
         yield return new WaitForSeconds(time);
         State.StopAnimation();
     }
-    
-    //public because used in interface script
+
     public void OnHitTrigger(GameObject objWeHit)
     {
         hitTrigger = true;
         triggerWeHit = objWeHit;
         State.DoAction();
         StartCoroutine(StopAnim(stopAnimTimer));
+    }
+
+    public void Dead()
+    {
+        this.enabled = false;
     }
 
 }
