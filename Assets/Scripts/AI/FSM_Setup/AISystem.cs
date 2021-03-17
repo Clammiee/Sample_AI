@@ -30,7 +30,7 @@ public class AISystem : StateMachine, HitTrigger, IDead
         upVector = Vector3.up;
     }
 
-//----------- UI STUFF ------------------// 
+//----------- UI STUFF ------------------// *Will place ine different script* * Temporary placement*
     public void IdleButton()
     {
         CommonTasks(states.Idle);
