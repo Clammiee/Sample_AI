@@ -15,8 +15,8 @@ public class VisionState : State
         AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Vision", true);
         
         //PUT THIS ON UI TO DEBUG OR SOMETHING------------------
-        if(WithinVisionCheck() == true) Debug.Log("We SEE the player");
-        else Debug.Log("We DONT see the player");
+        if(WithinVisionCheck() == true) aI_System.exclamation.SetActive(true);
+        else aI_System.exclamation.SetActive(false);
     }
 
     private bool WithinVisionCheck()

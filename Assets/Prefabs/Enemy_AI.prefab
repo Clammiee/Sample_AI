@@ -3578,9 +3578,9 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a5674d01884853d4e8f2386a171e14d9, type: 3}
   m_Controller: {fileID: 9100000, guid: c18b17f0c4f86f24b8046286dbc83e69, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 1
-  m_ApplyRootMotion: 0
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -3626,10 +3626,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 1.5
+  m_Acceleration: 4
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 100
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -3662,6 +3662,7 @@ MonoBehaviour:
   forwardVector: {x: 0, y: 0, z: 0}
   upVector: {x: 0, y: 0, z: 0}
   stopAnimTimer: 0.15
+  exclamation: {fileID: 7835535773451644013}
 --- !u!114 &8038728918190394517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3844,3 +3845,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7835535773451644013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2121172951460450069, guid: 1ed8d5305df4117498747e79b92abc6c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8201760576373056376}
+  m_PrefabAsset: {fileID: 0}

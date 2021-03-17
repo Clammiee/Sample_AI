@@ -19,6 +19,7 @@ public class AISystem : StateMachine, HitTrigger, IDead
     [HideInInspector] public Vector3 forwardVector;
     [HideInInspector] public Vector3 upVector;
     [SerializeField] private float stopAnimTimer = 0.3f;
+    public GameObject exclamation;
 
     void Start()
     {
