@@ -23,6 +23,14 @@ public class PlayerMovement : PlayerInputs
     private void Move(Vector3 direction)
     {
         Vector3 move = direction * speed * Time.deltaTime;
+        if(move != Vector3.zero)
+        {
+            AnimationEvents.TriggerOnPlayAnimation(this.gameObject, "Run", true); 
+        } 
+        else 
+        {
+            AnimationEvents.TriggerOnPlayAnimation(this.gameObject, "Run", false);
+        }
         rb.MovePosition(this.transform.position + move);
     }
 }
