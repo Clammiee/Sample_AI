@@ -30,35 +30,6 @@ public class AISystem : StateMachine, HitTrigger, IDead
         upVector = Vector3.up;
     }
 
-//----------- UI STUFF ------------------// *Will place ine different script* * Temporary placement*
-    public void IdleButton()
-    {
-        CommonTasks(states.Idle);
-    }
-
-    public void PatrolButton()
-    {
-        CommonTasks(states.Patrol);
-    }
-
-    public void ChaseButton()
-    {
-        CommonTasks(states.Chase);
-    }
-
-    public void AttackButton()
-    {
-        CommonTasks(states.Attack);
-    }
-
-    public void VisionButton()
-    {
-        CommonTasks(states.Vision);
-    }
-        
-//-----------  ------------------// 
-
-    
     public void CommonTasks(states currentState) //want to pass this function to our UI 
     {
         State.End(); //ends all previous tasks
