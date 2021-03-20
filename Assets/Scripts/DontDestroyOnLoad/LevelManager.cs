@@ -18,4 +18,9 @@ public class LevelManager : MonoBehaviour
                 break;
         }
     }
+
+    public string CheckLevel()
+    {
+        return SceneManager.GetActiveScene().name;
+    }
 }

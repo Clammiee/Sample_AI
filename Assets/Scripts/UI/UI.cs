@@ -30,4 +30,15 @@ public class UI : MonoBehaviour
     {
         aISystem.CommonTasks(AISystem.states.Vision);
     }
+
+    public void GoToLevel2()
+    {
+        Toolbox.Instance.GetLevelManager().ChangeLevel(2);
+    }
+    
+    public void GoToLevel1()
+    {
+        Toolbox.Instance.GetLevelManager().ChangeLevel(1);
+    }
+
 }
