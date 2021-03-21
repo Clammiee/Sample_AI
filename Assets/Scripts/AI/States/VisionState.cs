@@ -11,10 +11,8 @@ public class VisionState : State
 
     public override void DoAction()
     {
+       // AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Vision", true);
 
-        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Vision", true);
-        
-        //PUT THIS ON UI TO DEBUG OR SOMETHING------------------
         if(WithinVisionCheck() == true) aI_System.exclamation.SetActive(true);
         else aI_System.exclamation.SetActive(false);
     }
@@ -50,11 +48,11 @@ public class VisionState : State
 
     public override void End()
     {
-        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Vision", false);
+      //  AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Vision", false);
     }
 
     public override void StopAnimation()
     {
-        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Vision", false);
+        //AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Vision", false);
     }
 }

@@ -3987,6 +3987,7 @@ MonoBehaviour:
   upVector: {x: 0, y: 0, z: 0}
   stopAnimTimer: 0.15
   exclamation: {fileID: 8464629171566360706}
+  attackRange: 7
 --- !u!114 &8523696145561180282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4044,6 +4045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eabdd19241628b47a911ba69f3b7160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aISystem: {fileID: 8523696145561180281}
 --- !u!1 &8464629171566360706
 GameObject:
   m_ObjectHideFlags: 0

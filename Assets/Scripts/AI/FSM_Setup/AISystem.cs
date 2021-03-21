@@ -20,6 +20,7 @@ public class AISystem : StateMachine, HitTrigger, IDead
     [HideInInspector] public Vector3 upVector;
     [SerializeField] private float stopAnimTimer = 0.3f;
     public GameObject exclamation;
+    public float attackRange;
 
     void Start()
     {
@@ -36,7 +37,7 @@ public class AISystem : StateMachine, HitTrigger, IDead
         if(this.enabled == true) ChangeState(currentState);
     }
 
-    private void ChangeState(states newState)
+    public void ChangeState(states newState)
     {
         switch(newState)
         {
@@ -53,10 +54,11 @@ public class AISystem : StateMachine, HitTrigger, IDead
                 SetState(new AttackState(this));
                 break;
             case states.Vision:
-                SetState(new VisionState(this));
+                SetVision(new VisionState(this));
                 break;
         }
         State.DoAction();
+        StateVision.DoAction();
 
         StartCoroutine(StopAnim(stopAnimTimer));
     }
