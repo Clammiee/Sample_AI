@@ -3983,8 +3983,6 @@ MonoBehaviour:
   player: {fileID: 0}
   visionRange: 30
   field_Of_View_Angle: 40
-  forwardVector: {x: 0, y: 0, z: 0}
-  upVector: {x: 0, y: 0, z: 0}
   stopAnimTimer: 0.15
   exclamation: {fileID: 8464629171566360706}
   attackRange: 7
