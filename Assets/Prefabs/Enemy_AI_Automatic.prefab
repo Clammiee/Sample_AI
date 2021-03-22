@@ -3936,9 +3936,9 @@ Rigidbody:
   m_Drag: 1
   m_AngularDrag: 0
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!195 &2184964303412732341
 NavMeshAgent:
@@ -3950,7 +3950,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 1.5
+  m_Speed: 3
   m_Acceleration: 4
   avoidancePriority: 50
   m_AngularSpeed: 100
@@ -3960,7 +3960,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 1.72
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
 --- !u!114 &8523696145561180281
 MonoBehaviour:
@@ -3981,8 +3981,8 @@ MonoBehaviour:
   agent: {fileID: 2184964303412732341}
   rotationSpeed: 5
   player: {fileID: 0}
-  visionRange: 20
-  field_Of_View_Angle: 30
+  visionRange: 30
+  field_Of_View_Angle: 40
   forwardVector: {x: 0, y: 0, z: 0}
   upVector: {x: 0, y: 0, z: 0}
   stopAnimTimer: 0.15

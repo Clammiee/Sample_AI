@@ -10,6 +10,11 @@ public class ChaseState : State
     {        
     }
 
+    public override void Start()
+    {
+        aI_System.agent.isStopped = false;
+    }
+
 
     public override void DoAction()
     {   

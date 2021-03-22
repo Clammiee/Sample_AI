@@ -11,6 +11,8 @@ public class PatrolState : State
 
     public override void Start()
     {
+        AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Idle", false);
+        aI_System.agent.isStopped = false;
         aI_System.hitTrigger = true; //to let us to to the first waypoint (with below method)
     }
 
