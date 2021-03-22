@@ -12,7 +12,6 @@ public class PatrolState : State
     public override void Start()
     {
         aI_System.hitTrigger = true; //to let us to to the first waypoint (with below method)
-        
     }
 
     public override void DoAction()

@@ -3981,8 +3981,8 @@ MonoBehaviour:
   agent: {fileID: 2184964303412732341}
   rotationSpeed: 5
   player: {fileID: 0}
-  visionRange: 30
-  field_Of_View_Angle: 40
+  visionRange: 20
+  field_Of_View_Angle: 30
   forwardVector: {x: 0, y: 0, z: 0}
   upVector: {x: 0, y: 0, z: 0}
   stopAnimTimer: 0.15

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AutoAIStateChange : MonoBehaviour
 {
-    [SerializeField] private AISystem aISystem;
+    [SerializeField] private AISystem aISystem; //use unity even for this??!!!
     private int awareCount;
     private int unawareCount;
     private GameObject player;
@@ -18,7 +18,7 @@ public class AutoAIStateChange : MonoBehaviour
     {
         aISystem.ChangeState(AISystem.states.Vision);
 
-        if(aISystem.exclamation.activeInHierarchy) //player got detected
+        if(aISystem.exclamation.activeInHierarchy)
         {
             unawareCount = 0;
             if(awareCount == 0)
@@ -26,14 +26,12 @@ public class AutoAIStateChange : MonoBehaviour
                 aISystem.CommonTasks(AISystem.states.Chase);
                 awareCount++;
             }
-            
-            //if within shooting distance than stop chasing and attack instead
-            if(Vector3.Distance(this.gameObject.transform.position, player.transform.position) <= aISystem.attackRange)
+            if(player != null && Vector3.Distance(this.gameObject.transform.position, player.transform.position) <= aISystem.attackRange)
             {
                 aISystem.CommonTasks(AISystem.states.Attack);
             }
         } 
-        else if(aISystem.exclamation.activeInHierarchy == false) //player not detected
+        else if(aISystem.exclamation.activeInHierarchy == false)
         {
             awareCount = 0;
             if(unawareCount == 0)

@@ -25,15 +25,14 @@ public class AISystem : StateMachine, HitTrigger, IDead
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        SetState(new IdleState(this));
-        State.DoAction();
+        if(Toolbox.Instance.GetLevelManager().CheckLevel() == "Level1") CommonTasks(states.Idle);
         forwardVector = Vector3.forward;
         upVector = Vector3.up;
     }
 
     public void CommonTasks(states currentState) //want to pass this function to our UI 
     {
-        State.End(); //ends all previous tasks
+        if(State != null) State.End(); //ends all previous tasks
         if(this.enabled == true) ChangeState(currentState);
     }
 
@@ -57,8 +56,8 @@ public class AISystem : StateMachine, HitTrigger, IDead
                 SetVision(new VisionState(this));
                 break;
         }
-        State.DoAction();
-        StateVision.DoAction();
+       if(State != null) State.DoAction();
+       if(StateVision != null) StateVision.DoAction();
 
         StartCoroutine(StopAnim(stopAnimTimer));
     }

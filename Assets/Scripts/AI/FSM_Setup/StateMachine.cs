@@ -17,7 +17,7 @@ public abstract class StateMachine : MonoBehaviour
     public void SetVision(State stateVision)
     {
         StateVision = stateVision;
-        State.Start();
+        StateVision.Start();
     }
 
     //get state?
