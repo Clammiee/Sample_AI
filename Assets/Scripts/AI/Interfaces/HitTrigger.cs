@@ -3,6 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public interface HitTrigger
-{
+{    
     void OnHitTrigger(GameObject objWeHit);
 }

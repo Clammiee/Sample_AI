@@ -19,8 +19,4 @@ public abstract class StateMachine : MonoBehaviour
         StateVision = stateVision;
         StateVision.Start();
     }
-
-    //get state?
-
-    //second state?
 }

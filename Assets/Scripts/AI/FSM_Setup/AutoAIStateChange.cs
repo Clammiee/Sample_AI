@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AutoAIStateChange : MonoBehaviour
 {
-    [SerializeField] private AISystem aISystem; //use unity even for this??!!!
+    [SerializeField] private AISystem aISystem;
     private int awareCount;
     private int unawareCount;
     private GameObject player;

@@ -11,8 +11,6 @@ public class VisionState : State
 
     public override void DoAction()
     {
-       // AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Vision", true);
-
         if(WithinVisionCheck() == true) aI_System.exclamation.SetActive(true);
         else aI_System.exclamation.SetActive(false);
     }
@@ -40,7 +38,6 @@ public class VisionState : State
                 {
                     if(hit.collider.CompareTag("Player"))
                     {
-                        // Debug.Log("angle: " + angle);
                         hitPlayer = true;
                     }
                     //else hitPlayer = false;
@@ -56,11 +53,9 @@ public class VisionState : State
 
     public override void End()
     {
-      //  AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Vision", false);
     }
 
     public override void StopAnimation()
     {
-        //AnimationEvents.TriggerOnPlayAnimation(aI_System.gameObject, "Vision", false);
     }
 }

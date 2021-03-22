@@ -16,8 +16,6 @@ public class AISystem : StateMachine, HitTrigger, IDead
     [HideInInspector] public GameObject player;
     public float visionRange;
     public float field_Of_View_Angle;
-   // [HideInInspector] public Vector3 forwardVector;
-  //  [HideInInspector] public Vector3 upVector;
     [SerializeField] private float stopAnimTimer = 0.3f;
     public GameObject exclamation;
     public float attackRange;
@@ -26,8 +24,6 @@ public class AISystem : StateMachine, HitTrigger, IDead
     {
         player = GameObject.FindGameObjectWithTag("Player");
         if(Toolbox.Instance.GetLevelManager().CheckLevel() == "Level1") CommonTasks(states.Idle);
-     //   forwardVector = this.transform.forward;
-      //  upVector = this.transform.up;
     }
 
     public void CommonTasks(states currentState) //want to pass this function to our UI 
