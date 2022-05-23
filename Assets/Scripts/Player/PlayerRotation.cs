@@ -21,7 +21,7 @@ public class PlayerRotation : PlayerInputs
 
     private void Rotate(Vector3 direction)
     {
-        Quaternion deltaRotation = Quaternion.Euler(direction * Time.fixedDeltaTime * speed);
+        Quaternion deltaRotation = Quaternion.Euler(direction * speed);
         if(deltaRotation != Quaternion.identity)
         {
             AnimationEvents.TriggerOnPlayAnimation(this.gameObject, "Run", true); 
