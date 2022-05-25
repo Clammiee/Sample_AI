@@ -22,38 +22,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Left",
-                    "type": "Button",
-                    "id": "6d869b9e-a356-477a-b0ea-fcf41f0dddc8",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Right",
-                    "type": "Button",
-                    "id": "65d86bcb-7955-4b62-8a47-abe7fdc3bb76",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "RotateRight",
-                    "type": "Button",
-                    "id": "f4e9ebe6-ce0c-4d2b-8f26-8b4b2602eb60",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "RotateLeft",
-                    "type": "Button",
-                    "id": "08d5831c-20c4-4b79-8ae1-1cfbd6ee5e8f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Attack",
                     "type": "Button",
                     "id": "f4b51eef-bba9-41d8-b3c2-f8a3f0e25eda",
@@ -109,96 +77,8 @@
                 },
                 {
                     "name": "",
-                    "id": "60c130e7-7eed-41a8-baf9-debcb19798f3",
-                    "path": "<Keyboard>/#(A)",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Left",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "205cbece-fe8f-44ca-8170-0d36075936fb",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Left",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "13576328-afb0-4b39-9e9f-b783d6ab8f2e",
-                    "path": "<Keyboard>/#(D)",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Right",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b8e533f3-90b5-4ce6-9f88-e7df2032843a",
-                    "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Right",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c4f32506-b847-4995-b54b-4d769e720dfd",
-                    "path": "<Keyboard>/#(E)",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RotateRight",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "797e76d9-0fef-44f6-bcf4-019ec212776c",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RotateRight",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "655b0243-f080-45d8-bb1b-f1b356f78c5d",
-                    "path": "<Keyboard>/#(Q)",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RotateLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "72cc46e3-a059-43bd-ad20-595237c14bc6",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RotateLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "7d1739e3-04a5-4c72-9d1b-4070723156cc",
-                    "path": "<Keyboard>/space",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
