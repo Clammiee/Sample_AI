@@ -6,30 +6,31 @@ public class PlayerRotation : PlayerInputs
 {
     [Tooltip("Speed of rotation on Y axis")]
     [SerializeField] private float speed;
+    private float angle = 0f;
 
     void FixedUpdate()
     {
-        Rotation();
+        MouseTurningPlayer();
     }
 
-    private void Rotation()
+    private float AngleBetweenPoints(Vector2 a, Vector2 b)
     {
-        float yDirection = base.DirectionOutput(playerActions.RotateRight, playerActions.RotateLeft);
-        Vector3 newDir = new Vector3(0f, yDirection, 0f);
-        Rotate(newDir);
+        return Mathf.Atan2(b.x - a.x, b.y - a.y) * Mathf.Rad2Deg;
     }
 
-    private void Rotate(Vector3 direction)
+    private void MouseTurningPlayer()
     {
-        Quaternion deltaRotation = Quaternion.Euler(direction * speed);
-        if(deltaRotation != Quaternion.identity)
+        Vector2 positionOnScreen = Camera.main.WorldToViewportPoint(this.transform.position);
+        Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        angle = AngleBetweenPoints(positionOnScreen, mouseOnScreen);
+
+        if (Vector2.Distance(positionOnScreen, mouseOnScreen) > 0.01f)
         {
-            AnimationEvents.TriggerOnPlayAnimation(this.gameObject, "Run", true); 
-        } 
-        else 
+            rb.MoveRotation(Quaternion.Euler(new Vector3(0f, angle, 0f)));
+        }
+        else
         {
             AnimationEvents.TriggerOnPlayAnimation(this.gameObject, "Run", false);
         }
-        rb.MoveRotation(rb.rotation * deltaRotation);
     }
 }

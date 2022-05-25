@@ -17,20 +17,24 @@ public class PlayerMovement : PlayerInputs
         float zDirection = base.DirectionOutput(playerActions.Forwards, playerActions.Backwards);
         float xDirection = base.DirectionOutput(playerActions.Right, playerActions.Left);
         Vector3 newDir = new Vector3(xDirection, 0f, zDirection);
-        Move(newDir.normalized);
+
+        Move((newDir).normalized);
     }
 
     private void Move(Vector3 direction)
     {
-        Vector3 move = direction * speed * Time.deltaTime;
+        Vector3 move = (direction * speed);
         if(move != Vector3.zero)
         {
-            AnimationEvents.TriggerOnPlayAnimation(this.gameObject, "Run", true); 
+            AnimationEvents.TriggerOnPlayAnimation(this.gameObject,"Run", true); 
         } 
         else 
         {
-            AnimationEvents.TriggerOnPlayAnimation(this.gameObject, "Run", false);
+            //AnimationEvents.TriggerOnPlayAnimation(this.gameObject,"Run", false);
         }
-        rb.MovePosition(this.transform.position + move);
+        // rb.MovePosition();
+        rb.AddForce((this.transform.forward * (transform.position.z + move.z)) + (this.transform.right * (transform.position.x + move.x)));
+        
+       // rb.AddForce((move), ForceMode.Impulse);
     }
 }
