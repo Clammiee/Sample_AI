@@ -16,6 +16,7 @@ public class PlayerShoot : PlayerInputs
         if(ShootInput() == true)
         {
             AnimationEvents.TriggerOnPlayAnimation(this.gameObject, "Shoot", true);
+            //ActionEvents.TriggerOnShootBullet(this.gameObject);
         }
         else 
         {

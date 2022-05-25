@@ -26,13 +26,13 @@ public class ActionSubscriber : MonoBehaviour
 
     public void SetOnShootBullet(GameObject obj)
     {
-        if(this.gameObject == obj)
+        if (this.gameObject == obj)
         {
             ShootBullet();
         }
     }
 
-    private void ShootBullet()
+    public void ShootBullet()
     {
         GameObject bullet = objectPooler.SpawnFromPool("Bullet", tip.transform.position);
         bullet.GetComponent<Bullet>().InitializeBullet(damagePerBullet);
@@ -40,6 +40,6 @@ public class ActionSubscriber : MonoBehaviour
         Rigidbody rigidbody = bullet.GetComponent<Rigidbody>();
         rigidbody.velocity = Vector3.zero;
         rigidbody.transform.rotation = Quaternion.LookRotation(tip.transform.forward);
-        rigidbody.AddForce(tip.transform.forward * bulletSpeed, ForceMode.Force);
+        rigidbody.AddForce(tip.transform.forward * bulletSpeed, ForceMode.Impulse);
     }
 }

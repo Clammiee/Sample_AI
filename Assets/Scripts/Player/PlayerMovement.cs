@@ -32,9 +32,6 @@ public class PlayerMovement : PlayerInputs
         {
             //AnimationEvents.TriggerOnPlayAnimation(this.gameObject,"Run", false);
         }
-        // rb.MovePosition();
-        rb.AddForce((this.transform.forward * (transform.position.z + move.z)) + (this.transform.right * (transform.position.x + move.x)));
-        
-       // rb.AddForce((move), ForceMode.Impulse);
+        rb.AddForce((this.transform.forward * move.z) + (this.transform.right * move.x), ForceMode.Force);
     }
 }
