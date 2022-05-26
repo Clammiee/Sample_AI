@@ -4008,6 +4008,8 @@ MonoBehaviour:
   healthBar: {fileID: 5259591585594270502}
   stopAnimTimer: 0.3
   stayDeadTimer: 0.8
+  isPlayerCharacter: 0
+  rb: {fileID: 8523696145561180280}
 --- !u!114 &8557796089595433900
 MonoBehaviour:
   m_ObjectHideFlags: 0

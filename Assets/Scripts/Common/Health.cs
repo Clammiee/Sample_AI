@@ -14,6 +14,8 @@ public class Health : MonoBehaviour, IDamagable
     [SerializeField] private float stopAnimTimer;
     [Tooltip("Needs to be higher than Stop Anim Timer")]
     [SerializeField] private float stayDeadTimer;
+    [SerializeField] private bool isPlayerCharacter = true;
+    [SerializeField] private Rigidbody rb;
 
     private float healthDecimal;
     private int dieOnce = 0;
@@ -42,6 +44,7 @@ public class Health : MonoBehaviour, IDamagable
         else 
         {
             AnimationEvents.TriggerOnPlayAnimation(this.gameObject, "Hurt", true);
+            rb.constraints = RigidbodyConstraints.FreezeAll;
             StartCoroutine(StopAnim(stopAnimTimer));
         }
         healthBar.fillAmount = healthDecimal;
@@ -52,6 +55,8 @@ public class Health : MonoBehaviour, IDamagable
         yield return new WaitForSeconds(time);
         AnimationEvents.TriggerOnPlayAnimation(this.gameObject, "Hurt", false);
         AnimationEvents.TriggerOnPlayAnimation(this.gameObject, "Dead", false);
+        if (isPlayerCharacter == true) rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        else rb.constraints = RigidbodyConstraints.FreezePositionY;
     }
 
     private IEnumerator StayDead(float time)
