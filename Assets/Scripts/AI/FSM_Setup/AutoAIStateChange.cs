@@ -14,22 +14,23 @@ public class AutoAIStateChange : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    void FixedUpdate()
+    void Update()
     {
         aISystem.ChangeState(AISystem.states.Vision);
 
         if(aISystem.exclamation.activeInHierarchy)
         {
             unawareCount = 0;
-            if(awareCount == 0)
-            {
-                aISystem.CommonTasks(AISystem.states.Chase);
-                awareCount++;
-            }
-            if(player != null && Vector3.Distance(this.gameObject.transform.position, player.transform.position) <= aISystem.attackRange)
+            if (player != null && Vector3.Distance(this.gameObject.transform.position, player.transform.position) <= aISystem.attackRange)
             {
                 aISystem.CommonTasks(AISystem.states.Attack);
             }
+            else //if (awareCount == 0)
+            {
+               // aISystem.CommonTasks(AISystem.states.Chase);
+                awareCount++;
+            }
+            //else aISystem.CommonTasks(AISystem.states.Attack);
         } 
         else if(aISystem.exclamation.activeInHierarchy == false)
         {
