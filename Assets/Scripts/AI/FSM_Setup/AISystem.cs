@@ -19,6 +19,8 @@ public class AISystem : StateMachine, HitTrigger, IDead
     [SerializeField] private float stopAnimTimer = 0.3f;
     public GameObject exclamation;
     public float attackRange;
+    public LayerMask playerMask;
+    public LayerMask obstacleMask;
 
     void Start()
     {
