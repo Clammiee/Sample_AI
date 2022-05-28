@@ -7061,7 +7061,7 @@ MonoBehaviour:
   field_Of_View_Angle: 90
   stopAnimTimer: 0.15
   exclamation: {fileID: 7539048669060398076}
-  attackRange: 10
+  attackRange: 5
   playerMask:
     serializedVersion: 2
     m_Bits: 64

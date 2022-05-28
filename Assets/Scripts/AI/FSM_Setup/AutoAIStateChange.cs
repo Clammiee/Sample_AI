@@ -27,7 +27,7 @@ public class AutoAIStateChange : MonoBehaviour
             }
             else //if (awareCount == 0)
             {
-               // aISystem.CommonTasks(AISystem.states.Chase);
+                aISystem.CommonTasks(AISystem.states.Chase);
                 awareCount++;
             }
             //else aISystem.CommonTasks(AISystem.states.Attack);

@@ -9,16 +9,6 @@ public class VisionState : State
 
     }
 
-    public float AngleInRad(Vector3 vec1, Vector3 vec2)
-    {
-        return Mathf.Atan2(vec2.y - vec1.y, vec2.x - vec1.x);
-    }
-
-    public float AngleInDeg(Vector3 vec1, Vector3 vec2)
-    {
-        return AngleInRad(vec1, vec2) * 180 / Mathf.PI;
-    }
-
     public override void DoAction()
     {
         if(WithinVisionCheck() == true) aI_System.exclamation.SetActive(true);
@@ -30,30 +20,6 @@ public class VisionState : State
     {
         if(aI_System.player != null)
         {
-            //Vector3 reference_Forward = aI_System.transform.forward;
-            //Vector3 reference_Right = aI_System.transform.right;
-            //Vector3 newDir = (aI_System.player.transform.position - aI_System.transform.position).normalized;
-            //float starter_Angle = Vector3.Angle(newDir, reference_Forward);
-            //float sign = Mathf.Sign(Vector3.Dot(newDir, reference_Right));
-            //float angle = sign * starter_Angle;
-            //Vector3 direction = newDir;
-
-            //RaycastHit hit;
-
-            //if(angle < aI_System.field_Of_View_Angle && angle > -aI_System.field_Of_View_Angle)
-            //{
-            //    if(Physics.Raycast(aI_System.transform.position, direction, out hit, aI_System.visionRange))
-            //    {
-            //        if(hit.collider.CompareTag("Player"))
-            //        {
-            //            hitPlayer = true;
-            //        }
-            //        else hitPlayer = false;
-            //    } 
-            //    else hitPlayer = false;
-            //} 
-            //else hitPlayer = false;
-
             Collider[] visionRangeChecks = Physics.OverlapSphere(aI_System.transform.position, aI_System.visionRange, aI_System.playerMask);
 
             if(visionRangeChecks.Length > 0)
