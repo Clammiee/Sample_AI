@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 
 public class PlayerInputs : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerInputs : MonoBehaviour
         inputs = new Inputs();
         playerActions = inputs.Player;
         playerActions.Enable();
+        
     }
 
     protected bool IsInputTriggered(InputAction inputButton)

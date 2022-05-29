@@ -41,6 +41,14 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""VirtualMouseTrigger"",
+                    ""type"": ""Value"",
+                    ""id"": ""dbd88548-195e-4317-90a3-ad76365dc1ac"",
+                    ""expectedControlType"": ""Analog"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -57,7 +65,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""291eda68-c9ed-4c66-9af7-a6dca5149929"",
+                    ""id"": ""948329b3-d0fb-4677-8e59-5871ca65b69b"",
                     ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -79,7 +87,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""78a2e877-1304-4fb3-885d-df614f038764"",
+                    ""id"": ""0f179d04-4cd8-4d09-bdfe-3cecbeecdcb6"",
                     ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -101,12 +109,23 @@ public class @Inputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d4c86cc4-dfbf-462f-a9b0-01fe9a3b440b"",
+                    ""id"": ""8a1022e9-3d9d-4c24-ab7d-96d17e33f6eb"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d8336d24-ec01-449c-83f2-967c6c8666ed"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VirtualMouseTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -120,6 +139,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Player_Forwards = m_Player.FindAction("Forwards", throwIfNotFound: true);
         m_Player_Backwards = m_Player.FindAction("Backwards", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_VirtualMouseTrigger = m_Player.FindAction("VirtualMouseTrigger", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -172,6 +192,7 @@ public class @Inputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Forwards;
     private readonly InputAction m_Player_Backwards;
     private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_VirtualMouseTrigger;
     public struct PlayerActions
     {
         private @Inputs m_Wrapper;
@@ -179,6 +200,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         public InputAction @Forwards => m_Wrapper.m_Player_Forwards;
         public InputAction @Backwards => m_Wrapper.m_Player_Backwards;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @VirtualMouseTrigger => m_Wrapper.m_Player_VirtualMouseTrigger;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -197,6 +219,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                @VirtualMouseTrigger.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVirtualMouseTrigger;
+                @VirtualMouseTrigger.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVirtualMouseTrigger;
+                @VirtualMouseTrigger.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVirtualMouseTrigger;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -210,6 +235,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @VirtualMouseTrigger.started += instance.OnVirtualMouseTrigger;
+                @VirtualMouseTrigger.performed += instance.OnVirtualMouseTrigger;
+                @VirtualMouseTrigger.canceled += instance.OnVirtualMouseTrigger;
             }
         }
     }
@@ -219,5 +247,6 @@ public class @Inputs : IInputActionCollection, IDisposable
         void OnForwards(InputAction.CallbackContext context);
         void OnBackwards(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnVirtualMouseTrigger(InputAction.CallbackContext context);
     }
 }
