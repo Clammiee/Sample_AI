@@ -2,9 +2,12 @@
 -----------------------
 The AI enemies are created with a Finite State Machine and it uses events. The entire project uses very little Update functions so it is very performant code-wise.
 
-- You can move the blue player with WASD, rotate it with Q/ E and shoot with space.
-- The enemy can be control by pressing the buttons on the screen. This first level is done this way so you can see that the enemy has all these functionalities and how they work.
-- In Level 2 the enemy AI behaves automatically and you'll still control the player, it's just like a third-person shooter game.
+- The enemy AI behaves automatically and you control the player, it's just like a third-person shooter game.
+### Controls : ###
+- Mouse -OR- Right Thumbstick = to move cursor = rotates player
+- W -OR- Up on Left Thumbstick = to move player towards cursor
+- S -OR- Down on Left Thumbtsick = to move player away from cursor
+- Left Mouse Button -OR- Right Trigger = to shoot
 
 Technical Design Diagram downloadable here: https://drive.google.com/file/d/1vcyhfVI_smW0EZH_SWpYaUavfcl9kG0M/view?usp=sharing
 
