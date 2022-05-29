@@ -9,6 +9,13 @@ The AI enemies are created with a Finite State Machine and it uses events. The e
 - S -OR- Down on Left Thumbtsick = to move player away from cursor
 - Left Mouse Button -OR- Right Trigger = to shoot
 
+-----------------------------
+
+This project was created with Unity 2020.3.13f1. Normally it should work from 2019 LTS up to 2021 LTS. If there are any problems with any of those version, please contact me:
+jessica.stpierregagne@gmail.com
+
+-------------------------------
+
 Technical Design Diagram downloadable here: https://drive.google.com/file/d/1vcyhfVI_smW0EZH_SWpYaUavfcl9kG0M/view?usp=sharing
 
 Or viewable here:
