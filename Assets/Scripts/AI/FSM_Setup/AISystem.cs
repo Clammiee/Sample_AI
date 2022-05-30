@@ -21,6 +21,7 @@ public class AISystem : StateMachine, HitTrigger, IDead
     public float attackRange;
     public LayerMask playerMask;
     public LayerMask obstacleMask;
+    public Rigidbody rb;
 
     void Start()
     {

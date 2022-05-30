@@ -6280,6 +6280,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 128
+  rb: {fileID: 7751314857922435846}
 --- !u!136 &7751314857922435849
 CapsuleCollider:
   m_ObjectHideFlags: 0

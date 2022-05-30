@@ -22,7 +22,7 @@ public class Toolbox : MonoBehaviour
         this.levelManager = go1.AddComponent<LevelManager>();
     }
 
-    public LevelManager GetLevelManager()//Toolbox.Instance.GetLevelManager()
+    public LevelManager GetLevelManager()
     {
         return this.levelManager;
     }

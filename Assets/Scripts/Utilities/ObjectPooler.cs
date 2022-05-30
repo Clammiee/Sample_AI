@@ -12,16 +12,12 @@ public class ObjectPooler : MonoBehaviour
         public int size;
     }
 
-    #region Singleton
-
     public static ObjectPooler Instance;
 
     void Awake()
     {
         Instance = this;
     }
-
-    #endregion
 
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> pool_Dictionary;

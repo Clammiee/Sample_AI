@@ -18,7 +18,6 @@ public class Health : MonoBehaviour, IDamagable
     [SerializeField] private Rigidbody rb;
 
     private float healthDecimal;
-    private int dieOnce = 0;
 
     public void Damage(float amount)
     {
@@ -27,24 +26,19 @@ public class Health : MonoBehaviour, IDamagable
 
         if(health <= 0)
         {
-            if(dieOnce == 0)
-            {
-                healthDecimal = 0f;
-                AnimationEvents.TriggerOnPlayAnimation(this.gameObject, "Dead", true);
+            healthDecimal = 0f;
+            AnimationEvents.TriggerOnPlayAnimation(this.gameObject, "Dead", true);
                 
-                //So that the AI/ Player stays dead and cant function anymore
-                IDead iDead = this.GetComponent<IDead>();
-                if(iDead != null) iDead.Dead();
+             //So that the AI/ Player stays dead and cant function anymore
+             IDead iDead = this.GetComponent<IDead>();
+             if(iDead != null) iDead.Dead();
 
-                dieOnce++;
-            }
-            StartCoroutine(StopAnim(stopAnimTimer));
-            StartCoroutine(StayDead(stayDeadTimer));
+            StartCoroutine(StayDead(stayDeadTimer)); 
         }
         else 
         {
             AnimationEvents.TriggerOnPlayAnimation(this.gameObject, "Hurt", true);
-            rb.constraints = RigidbodyConstraints.FreezeAll;
+            rb.constraints = RigidbodyConstraints.FreezePosition;
             StartCoroutine(StopAnim(stopAnimTimer));
         }
         healthBar.fillAmount = healthDecimal;
@@ -62,6 +56,7 @@ public class Health : MonoBehaviour, IDamagable
     private IEnumerator StayDead(float time)
     {
         yield return new WaitForSeconds(time);
-        AnimationEvents.TriggerOnPlayAnimation(this.gameObject, "Idle", false);
+        AnimationEvents.TriggerOnPlayAnimation(this.gameObject, "Dead", true);
+        rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 }

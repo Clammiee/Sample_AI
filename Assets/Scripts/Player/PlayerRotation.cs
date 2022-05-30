@@ -35,7 +35,6 @@ public class PlayerRotation : PlayerInputs
     {
         if (Event.current.isMouse == true && isMouse == false)
         {
-
             playerRotateType = null;
             playerRotateType = MouseTurningPlayer;
             Cursor.lockState = CursorLockMode.Confined;
@@ -47,7 +46,6 @@ public class PlayerRotation : PlayerInputs
         }
         else if (base.inputs.Player.VirtualMouseTrigger != null && Event.current.isMouse == false && isMouse == true && base.inputs.Player.VirtualMouseTrigger.ReadValue<Vector2>() != Vector2.zero)
         {
-
             playerRotateType = null;
             playerRotateType = VirtualMouseTurningPlayer;
 
@@ -66,7 +64,7 @@ public class PlayerRotation : PlayerInputs
         if (playerRotateType != null) playerRotateType();
     }
 
-        private float AngleBetweenPoints(Vector2 a, Vector2 b)
+    private float AngleBetweenPoints(Vector2 a, Vector2 b)
     {
         return Mathf.Atan2(b.x - a.x, b.y - a.y) * Mathf.Rad2Deg;
     }

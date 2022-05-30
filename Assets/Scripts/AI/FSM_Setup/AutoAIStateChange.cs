@@ -5,7 +5,6 @@ using UnityEngine;
 public class AutoAIStateChange : MonoBehaviour
 {
     [SerializeField] private AISystem aISystem;
-    private int awareCount;
     private int unawareCount;
     private GameObject player;
 
@@ -18,29 +17,29 @@ public class AutoAIStateChange : MonoBehaviour
     {
         aISystem.ChangeState(AISystem.states.Vision);
 
-        if(aISystem.exclamation.activeInHierarchy)
+        if(aISystem.exclamation.activeInHierarchy && aISystem.rb.constraints != RigidbodyConstraints.FreezeAll)
         {
-            unawareCount = 0;
             if (player != null && Vector3.Distance(this.gameObject.transform.position, player.transform.position) <= aISystem.attackRange)
             {
                 aISystem.CommonTasks(AISystem.states.Attack);
             }
-            else //if (awareCount == 0)
+            else
             {
                 aISystem.CommonTasks(AISystem.states.Chase);
-                awareCount++;
             }
-            //else aISystem.CommonTasks(AISystem.states.Attack);
+            unawareCount = 0;
         } 
-        else if(aISystem.exclamation.activeInHierarchy == false)
+        else if(aISystem.exclamation.activeInHierarchy == false && aISystem.rb.constraints != RigidbodyConstraints.FreezeAll)
         {
-            awareCount = 0;
             if(unawareCount == 0)
             {
                 aISystem.CommonTasks(AISystem.states.Patrol);
                 unawareCount++;
             }
-            
+        }
+        else
+        {
+            aISystem.CommonTasks(AISystem.states.Idle);
         }
     }
 }
