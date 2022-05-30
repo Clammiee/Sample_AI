@@ -1,5 +1,11 @@
 # Sample_AI
 -----------------------
+
+Tutorial and project description here:
+https://youtu.be/t2HSZn7aYBE
+
+----------------------
+
 The AI enemies are created with a Finite State Machine and it uses events. The entire project uses very little Update functions so it is very performant code-wise.
 
 - The enemy AI behaves automatically and you control the player, it's just like a third-person shooter game.
